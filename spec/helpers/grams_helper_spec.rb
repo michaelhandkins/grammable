@@ -1,15 +1,5 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the GramsHelper. For example:
-#
-# describe GramsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe GramsController, type: :controller do
   describe "grams#index action" do
     it "should successfully show the page" do
@@ -25,11 +15,7 @@ RSpec.describe GramsController, type: :controller do
     end
 
     it "should successfully show the new form" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryBot.create(:user)
       sign_in user
 
       get :new
@@ -44,11 +30,7 @@ RSpec.describe GramsController, type: :controller do
     end
     
     it "should successfully create a new gram in our database" do
-      user = User.create(
-          email:                 'fakeuser@gmail.com',
-          password:              'secretPassword',
-          password_confirmation: 'secretPassword'
-        )
+      user = FactoryBot.create(:user)
         sign_in user
 
       post :create, params: { gram: { message: 'Hello!' } }
@@ -60,11 +42,7 @@ RSpec.describe GramsController, type: :controller do
   end
 
   it "should properly deal with validation errors" do
-    user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+    user = FactoryBot.create(:user)
       sign_in user
     post :create, params: { gram: { message: '' } }
     expect(response).to have_http_status(:unprocessable_entity)
