@@ -1,24 +1,31 @@
-# README
+Grammable
+=========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Instagram clone that was built using industry-standard, test-driven development following numerous red/green/refactor cycles.
 
-Things you may want to cover:
+Technologies Used
+-----------------
 
-* Ruby version
+  * Ruby, v. 2.5.3
+  * Rails
+  * RSpec
+  * FactoryBot
+  * Devise
+  * HTML5/CSS3
 
-* System dependencies
+Interface
+---------
 
-* Configuration
+Once registered as a user of Grammable, users may post "grams" (images with captions) via a "New Post."
 
-* Database creation
+![](images/newgram.PNG)
 
-* Database initialization
+Any registered user may then view grams and "add a comment."
 
-* How to run the test suite
+![](images/addcomment.PNG)
 
-* Services (job queues, cache servers, search engines, etc.)
+Grammable is currently deployed at https://grammable-handkins.herokuapp.com/
 
-* Deployment instructions
 
-* ...
+
+
